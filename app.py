@@ -20,13 +20,15 @@ def sort_files_by_extension(dir_path):
         return
     
     items = directory.iterdir()
-    print(len(list(items)))
-    if len(list(items)) == 0:
-        print(f"Папка пустая")
+
+    files = os.listdir(dir_path)
+    files = [entry for entry in files if os.path.isfile(os.path.join(dir_path, entry))]
+
+    if len(files) == 0:
+        print(f"Нет файлов для сортировки")
         return
     
     print("???")
-    
 
     for item in items:
         if item.is_file():
