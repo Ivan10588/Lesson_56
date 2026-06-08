@@ -12,9 +12,6 @@ def rename_files(dir_path, old_pattern, new_pattern):
     """
     directory = Path(dir_path)
 
-
-
-    # Проверка валидности пути
     if not directory.exists():
         print(f"Ошибка: путь '{dir_path}' не существует")
         return
@@ -23,7 +20,6 @@ def rename_files(dir_path, old_pattern, new_pattern):
         print(f"Ошибка: '{dir_path}' — это не папка")
         return
 
-    # Собираем все файлы в папке
     files = [item for item in directory.iterdir() if item.is_file()]
 
     if len(files) == 0:
@@ -34,24 +30,18 @@ def rename_files(dir_path, old_pattern, new_pattern):
 
     for item in files:
         old_name = item.name
-        
-        # Ищем old_pattern в имени файла (без учета расширения)
+
         if old_pattern in old_name:
-            # Формируем новое имя
             new_name = old_name.replace(old_pattern, new_pattern)
             new_path = item.parent / new_name
-            
-            # Переименовываем (move работает и для переименования внутри папки)
+
             item.rename(new_path)
             renamed_count += 1
             print(f"Переименовано: {old_name} -> {new_name}")
 
     print(f"Всего переименовано файлов: {renamed_count}")
 
-
-# Пример использования (как в вашем скриншоте)
 old_prefix = "IMG "
 new_prefix = "Vacation_Photo "
 
-# Вызываем функцию
 rename_files("rename_files", old_prefix, new_prefix)
