@@ -13,6 +13,7 @@ def rename_files(dir_path, old_pattern, new_pattern):
     directory = Path(dir_path)
 
 
+
     # Проверка валидности пути
     if not directory.exists():
         print(f"Ошибка: путь '{dir_path}' не существует")
