@@ -50,8 +50,8 @@ def rename_files(dir_path, old_pattern, new_pattern):
 
 
 # Пример использования (как в вашем скриншоте)
-old_prefix = "IMG_"
-new_prefix = "Vacation_Photo_"
+old_prefix = "IMG "
+new_prefix = "Vacation_Photo "
 
 # Вызываем функцию
-rename_files("files", old_prefix, new_prefix)
+rename_files("rename_files", old_prefix, new_prefix)
