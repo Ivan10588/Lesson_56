@@ -26,6 +26,7 @@ def sort_files_by_extension(dir_path):
         return
     
     print("???")
+    
 
     for item in items:
         if item.is_file():
